@@ -9,7 +9,8 @@ plugins {
     id 'java'
     id 'idea'
     id 'org.springframework.boot' version '2.1.1.RELEASE'
-    
+
+    id "com.github.neherim.quality.check" version "0.1.5"
 }
 
 group 'ru.test'
