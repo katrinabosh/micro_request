@@ -30,6 +30,11 @@ repositories {
 
 dependencies {
 
+    compile "org.springframework.boot:spring-boot-starter-jdbc:${springBootVersion}"
+    compile "com.h2database:h2:1.4.197"
+    compile "org.liquibase:liquibase-core:3.7.0"
+    
+    testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 

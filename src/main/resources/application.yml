@@ -1,0 +1,13 @@
+spring:
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
+    username: sa
+    password: sa
+  liquibase:
+    change-log: classpath:db/db.changelog-master.xml
+
+server:
+  port: 8081
