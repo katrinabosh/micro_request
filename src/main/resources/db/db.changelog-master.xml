@@ -5,6 +5,24 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-
+    <changeSet id="1" author="developer">
+        <createTable tableName="request" remarks="Запросы на покупку акций">
+            <column name="id" type="uuid">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="person_id" type="uuid" remarks="Участник, запросивший покупку">
+                <constraints nullable="false"/>
+            </column>
+            <column name="stock_code" type="varchar(10)" remarks="Код ценной бумаги">
+                <constraints nullable="false"/>
+            </column>
+            <column name="stock_count" type="number(10)" remarks="Количество запрашиваемых ценных бумаг">
+                <constraints nullable="false"/>
+            </column>
+            <column name="request_date" type="timestamp" remarks="Дата регистрации запроса">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
 
 </databaseChangeLog>
