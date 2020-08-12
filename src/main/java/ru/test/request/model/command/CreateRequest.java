@@ -1,11 +1,9 @@
-package ru.test.request.model;
-
-import ru.test.request.model.command.CreateRequest;
+package ru.test.request.model.command;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public class Request {
+public class CreateRequest {
 
     private final UUID id;
     private final UUID personId;
@@ -13,8 +11,7 @@ public class Request {
     private final int stockCount;
     private final LocalDateTime requestDate;
 
-
-    public Request(UUID id, UUID personId, String stockCode, int stockCount, LocalDateTime requestDate) {
+    public CreateRequest(UUID id, UUID personId, String stockCode, int stockCount, LocalDateTime requestDate) {
         this.id = id;
         this.personId = personId;
         this.stockCode = stockCode;
@@ -40,10 +37,5 @@ public class Request {
 
     public LocalDateTime getRequestDate() {
         return requestDate;
-    }
-
-    public static Request from(CreateRequest command) {
-        return new Request(command.getId(), command.getPersonId(), command.getStockCode(), command.getStockCount(),
-                command.getRequestDate());
     }
 }

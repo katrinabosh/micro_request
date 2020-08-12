@@ -30,6 +30,9 @@ repositories {
 
 dependencies {
 
+    compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    compile("org.apache.httpcomponents:httpclient:4.5.9")
+
     compile "org.springframework.boot:spring-boot-starter-jdbc:${springBootVersion}"
     compile "com.h2database:h2:1.4.197"
     compile "org.liquibase:liquibase-core:3.7.0"
