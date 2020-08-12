@@ -31,4 +31,9 @@ public class RequestDao {
         jdbcTemplate.update(DELETE_QUERY, Map.of("requestId", requestId));
     }
 
+    public Request getRequest(UUID requestId) {
+        // todo
+        return null;
+    }
+
 }

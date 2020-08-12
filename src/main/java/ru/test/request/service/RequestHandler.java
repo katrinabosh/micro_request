@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 import ru.test.request.dao.RequestDao;
 import ru.test.request.model.Request;
 import ru.test.request.model.command.CreateRequest;
+import ru.test.request.model.event.AccountChecked;
 
 import java.math.BigDecimal;
 
@@ -25,5 +26,10 @@ public class RequestHandler {
         var stock = stockService.getStockInfo(command.getStockCode());
         commandSender.checkAccount(command.getId(), command.getPersonId(),
                 stock.getPrice().multiply(BigDecimal.valueOf(command.getStockCount())));
+    }
+
+    public void listenAccountChecked(AccountChecked event) {
+        var req = requestDao.getRequest(event.getRequestId());
+        commandSender.buyStock(event.getRequestId(), req.getStockCode(), req.getStockCount(), event.getSum());
     }
 }

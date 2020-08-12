@@ -12,5 +12,16 @@ public class CommandSender {
         // todo
     }
 
+    /**
+     *
+     * @param requestId
+     * @param stockCode
+     * @param stockCount
+     * @param price допустимая цена акции
+     */
+    public void buyStock(UUID requestId, String stockCode, int stockCount, BigDecimal price) {
+        // todo
+    }
+
 
 }
