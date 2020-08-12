@@ -5,6 +5,7 @@ import ru.test.request.dao.RequestDao;
 import ru.test.request.model.Request;
 import ru.test.request.model.command.CreateRequest;
 import ru.test.request.model.event.AccountChecked;
+import ru.test.request.model.event.StocksBought;
 
 import java.math.BigDecimal;
 
@@ -32,4 +33,10 @@ public class RequestHandler {
         var req = requestDao.getRequest(event.getRequestId());
         commandSender.buyStock(event.getRequestId(), req.getStockCode(), req.getStockCount(), event.getSum());
     }
+
+    public void listenStocksBought(StocksBought event) {
+        var req = requestDao.getRequest(event.getRequestId());
+        commandSender.changeAccount(event.getRequestId(), req.getPersonId(), event.getSum());
+    }
+
 }

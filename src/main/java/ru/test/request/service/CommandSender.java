@@ -23,5 +23,9 @@ public class CommandSender {
         // todo
     }
 
+    public void changeAccount(UUID requestId, UUID personId, BigDecimal sum) {
+        // todo
+    }
+
 
 }
