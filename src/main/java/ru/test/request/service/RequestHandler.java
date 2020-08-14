@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 import ru.test.request.dao.RequestDao;
 import ru.test.request.model.Request;
 import ru.test.request.model.command.CreateRequest;
+import ru.test.request.model.event.AccountChanged;
 import ru.test.request.model.event.AccountChecked;
 import ru.test.request.model.event.StocksBought;
 
@@ -37,6 +38,10 @@ public class RequestHandler {
     public void listenStocksBought(StocksBought event) {
         var req = requestDao.getRequest(event.getRequestId());
         commandSender.changeAccount(event.getRequestId(), req.getPersonId(), event.getSum());
+    }
+
+    public void listenAccountChanged(AccountChanged event) {
+        requestDao.delete(event.getRequestId());
     }
 
 }
