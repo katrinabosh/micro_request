@@ -24,8 +24,13 @@ public class RequestHandler {
     }
 
     public void createRequest(CreateRequest command) {
-        requestDao.insert(Request.from(command));
         var stock = stockService.getStockInfo(command.getStockCode());
+        // todo обработать условия с отказами
+
+        var request = Request.from(command);
+        requestDao.insert(request);
+        commandSender.requestCreated(request);
+
         commandSender.checkAccount(command.getId(), command.getPersonId(),
                 stock.getPrice().multiply(BigDecimal.valueOf(command.getStockCount())));
     }

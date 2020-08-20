@@ -1,12 +1,17 @@
 package ru.test.request.service;
 
 import org.springframework.stereotype.Component;
+import ru.test.request.model.Request;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
 @Component
 public class CommandSender {
+
+    public void requestCreated(Request request) {
+
+    }
 
     public void checkAccount(UUID requestId, UUID personId, BigDecimal sum) {
         // todo
