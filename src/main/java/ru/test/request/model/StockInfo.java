@@ -9,7 +9,6 @@ public class StockInfo {
     private final int stockCount;
     private final BigDecimal price;
 
-    @ConstructorProperties({"stock_code", "stock_count", "price"})
     public StockInfo(String stockCode, int stockCount, BigDecimal price) {
         this.stockCode = stockCode;
         this.stockCount = stockCount;
